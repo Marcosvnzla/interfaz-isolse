@@ -12,7 +12,7 @@ class App extends Component {
     lastLectureDate: null
   }
 
-  RFStateMonitor = () => {
+  eventMonitor = () => {
     const timeStamp = new Date();
     const date = timeStamp.toDateString();
     console.log(date);
@@ -32,7 +32,7 @@ class App extends Component {
           alarmState={this.state.alarmState}
           rfState={this.state.RFState}/> 
         <Indicadores /> 
-        <button onClick={this.RFStateMonitor}>toggle state</button>
+        <button onClick={this.eventMonitor}>toggle state</button>
       </Layout>
     );
   }
