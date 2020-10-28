@@ -1,19 +1,20 @@
 import React from 'react';
 
-const Resumen = () => {
+const Resumen = (props) => {
   return (
     <div>
+      <h1>Resumen</h1>
       <div>
         <h2>Comm RF</h2>
-        <p>DUMMY estado de RF</p>
+        <p>{props.rfState}</p>
       </div>
       <div>
         <h2>Estado de alarma</h2>
-        <p>DUMMY (bien, mal, critico)</p>
+        <p>{props.alarmState}</p>
       </div>
       <div>
         <h2>Fecha de ultimo evento</h2>
-        <p>DUMMY add date via props (how?)</p>
+        <p>{props.date}</p>
       </div>
     </div>
   );
