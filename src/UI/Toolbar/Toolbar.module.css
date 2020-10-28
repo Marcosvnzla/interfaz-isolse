@@ -1,5 +1,16 @@
 .Toolbar {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  padding: 8px;
+}
+
+.imgContainer {
+  width: 225px;
+  height: 75px;
+}
+
+.Toolbar img {
+  width: 100%;
+  height: 100%;
 }
