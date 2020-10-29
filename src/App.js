@@ -9,7 +9,7 @@ class App extends Component {
   state = {
     RFState: 'todo ok',
     alarmState: 'todo bien',
-    lastLectureDate: null
+    lastLectureDate: 'no date yet'
   }
 
   eventMonitor = () => {
@@ -27,11 +27,11 @@ class App extends Component {
     return (
       <Layout>
         <NodosSistema />
+        <Indicadores /> 
         <Resumen 
           date={this.state.lastLectureDate}
           alarmState={this.state.alarmState}
           rfState={this.state.RFState}/> 
-        <Indicadores /> 
         <button onClick={this.eventMonitor}>toggle state</button>
       </Layout>
     );

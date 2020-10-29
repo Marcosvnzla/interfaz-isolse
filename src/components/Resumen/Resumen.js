@@ -1,8 +1,9 @@
 import React from 'react';
+import styles from './Resumen.module.css';
 
 const Resumen = (props) => {
   return (
-    <div>
+    <div className={styles.Resumen}>
       <h1>Resumen</h1>
       <div>
         <h2>Comm RF</h2>

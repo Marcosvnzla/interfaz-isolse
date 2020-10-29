@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './Toolbar.module.css';
-import fullLogo from '../../assets/images/logo.png';
+import smallLogo from '../../assets/images/smallLogo.png';
 
 const Toolbar = () => (
   <div className={styles.Toolbar}>
-    <div className={styles.imgContainer}><img src={fullLogo} alt="logo" /></div>
+    <div className={styles.imgContainer}><img src={smallLogo} alt="logo" /></div>
     <p>Interfaz de monitoreo</p>
   </div>
 );

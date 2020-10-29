@@ -1,3 +1,24 @@
-.Title {
-  color: var(--orange-color);
+.NodosSistema {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.NodosSistema h1 {
+  margin: 32px 0;
+}
+
+.NodosSistema select {
+  background-color: #888463;
+  color: var(--yellow);
+  padding: 12px;
+  width: 250px;
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
 }
