@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   margin: 128px auto;
-  width: 80%;
+  width: 90%;
   min-height: 256px;
 }
 
@@ -15,12 +15,25 @@
 
 .Grafica {
   text-align: center;
+  margin: 0 16px;
 }
 
 .Grafica div{
-  width: 128px;
-  height: 128px;
-  margin: 0 16px;
-  background-color: #387c38;
+  width: 156px;
+  height: 156px;
+  margin: 0 auto;
   border-radius: 50%;
+  transition: background-color 200ms ease-in;
+}
+
+.normal {
+  background-color: var(--green);
+}
+
+.failure {
+  background-color: var(--yellow);
+}
+
+.critical {
+  background-color: var(--red);
 }
