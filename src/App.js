@@ -1,22 +1,27 @@
 import React, { Component } from 'react';
 import './App.css';
+import axios from 'axios';
 import { BrowserRouter, Route } from 'react-router-dom';
+import firebase from './Firebase';
 import Layout from './components/Layout/Layout';
 import NodosSistema from './components/NodosSistema/NodosSistema';
 import Resumen from './components/Resumen/Resumen';
 import Indicadores from './components/Indicadores/Indicadores';
 
+const BASE_URL = 'https://maestria1-24022020.firebaseio.com/SISTEMA DE DETECCION INCENDIO DAMF';
+
 class App extends Component {
   state = {
     RFState: 'normal',
     alarmState: 'normal',
-    lastLectureDate: 'no date yet'
+    lastLectureDate: 'placeholder'
   }
 
   getEventTime = () => {
-    const timeStamp = new Date();
-    const date = timeStamp.toDateString();
-    this.setState({lastLectureDate: date});
+    axios.get(`${BASE_URL}/Conexion_Reciente/Reciente.json`)
+    .then((date) => {
+      this.setState({lastLectureDate: date.data})
+    });
   }
 
   setAlarmState = (lecture) => {
@@ -34,6 +39,16 @@ class App extends Component {
   }
 
   failureState = () => {
+    const activeNodesLecture = firebase.database().refFromURL(`${BASE_URL}/Estado_Local/Estado`);
+    activeNodesLecture.on('value', (snapshot) => {
+      console.log(snapshot.val());
+    });
+    axios.get(`${BASE_URL}/Direccion.json`)
+    .then((response) => {
+      console.log(response.data);
+      const encodedQuery = encodeURI(response.data);
+      window.open(`https://www.google.com.ar/maps/search/?api=1&query=${encodedQuery}`);
+    });
     this.setAlarmState('failure');
   }
   
