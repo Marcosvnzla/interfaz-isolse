@@ -14,27 +14,50 @@ class App extends Component {
   state = {
     RFState: '',
     alarmState: '',
-    updatedDate: ''
+    updatedDate: '',
+    alarmIndicador: '',
+    RFIndicador: ''
+  }
+
+  getLocation = () => {
+    axios.get(`${BASE_URL}/Direccion.json`)
+    .then((response) => {
+      const encodedQuery = encodeURI(response.data);
+      window.open(`https://www.google.com.ar/maps/search/?api=1&query=${encodedQuery}`);
+    })
+    .catch(e => {
+      console.log(e);
+    })
   }
 
   setEventTime = () => {
-    const dateListen = firebase.database().refFromURL(`${BASE_URL}/Conexion_Reciente/Reciente`);
-    dateListen.on('value', (snapshot) => {
+    const dateNode = firebase.database().refFromURL(`${BASE_URL}/Conexion_Reciente/Reciente`);
+    dateNode.on('value', (snapshot) => {
       this.setState({updatedDate: snapshot.val()});
     })
   }
 
   setAlarmState = () => {
-    const alarmListen = firebase.database().refFromURL(`${BASE_URL}/Estado_Local/Estado`);
-    alarmListen.on('value', (snapshot) => {
+    const alarmNode = firebase.database().refFromURL(`${BASE_URL}/Estado_Local/Estado`);
+    alarmNode.on('value', (snapshot) => {
       this.setState({alarmState: snapshot.val()});
+    });
+
+    const alarmIndicadorNode = firebase.database().refFromURL(`${BASE_URL}/Estado_Local/indicador`);
+    alarmIndicadorNode.on('value', (snapshot) => {
+      this.setState({alarmIndicador: snapshot.val()});
     });
   }
 
-  setRFCommonState = (lecture) => {
-    const RFStateListen = firebase.database().refFromURL(`${BASE_URL}/COM_RF/RFDSecundario`);
-    RFStateListen.on('value', (snapshot) => {
+  setRFCommonState = () => {
+    const RFNode = firebase.database().refFromURL(`${BASE_URL}/COM_RF/RFDSecundario`);
+    RFNode.on('value', (snapshot) => {
       this.setState({RFState: snapshot.val()});
+    });
+
+    const RFIndicadorNode = firebase.database().refFromURL(`${BASE_URL}/COM_RF/indicador`);
+    RFIndicadorNode.on('value', (snapshot) => {
+      this.setState({RFIndicador: snapshot.val()});
     });
   }
 
@@ -44,27 +67,13 @@ class App extends Component {
     this.setRFCommonState();
   }
 
-  failureState = () => {
-    const activeNodesListen = firebase.database().refFromURL(`${BASE_URL}/Estado_Local/Estado`);
-    activeNodesListen.on('value', (snapshot) => {
-      console.log(snapshot.val());
-    });
-    axios.get(`${BASE_URL}/Direccion.json`)
-    .then((response) => {
-      console.log(response.data);
-      const encodedQuery = encodeURI(response.data);
-      window.open(`https://www.google.com.ar/maps/search/?api=1&query=${encodedQuery}`);
-    });
-    this.setAlarmState('failure');
-  }
-
   render () {
     return (
       <BrowserRouter>
         <Layout>
           <Route path="/" exact component={NodosSistema} />
           <Route path="/indicadores" >
-            <Indicadores sdaState={this.state.alarmState} rfCommState={this.state.RFState} /> 
+            <Indicadores alarmIndicador={this.state.alarmIndicador} RFIndicador={this.state.RFIndicador} /> 
           </Route>
           <Route path="/resumen">
             <Resumen 
@@ -72,9 +81,7 @@ class App extends Component {
               alarmState={this.state.alarmState}
               rfState={this.state.RFState}/> 
           </Route>
-          <button onClick={this.normalState}>toggle normal</button>
-          <button onClick={this.failureState}>toggle failure</button>
-          <button onClick={this.criticalState}>toggle critical</button>
+          <button onClick={this.getLocation}>Obtener Direccion</button>
         </Layout>
       </BrowserRouter>
     );

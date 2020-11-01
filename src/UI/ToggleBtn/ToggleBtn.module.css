@@ -1,0 +1,13 @@
+.ToggleBtn {
+  width: 128px;
+  height: 128px;
+  padding: 8px;
+  background-color: var(--tile);
+  border-radius: 50%;
+  box-shadow: 0 5px 10px #ccc;
+}
+
+.ToggleBtn img {
+  width: 50%;
+  height: 50%;
+}
