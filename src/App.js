@@ -12,35 +12,41 @@ const BASE_URL = 'https://maestria1-24022020.firebaseio.com/SISTEMA DE DETECCION
 
 class App extends Component {
   state = {
-    RFState: 'normal',
-    alarmState: 'normal',
-    lastLectureDate: 'placeholder'
+    RFState: '',
+    alarmState: '',
+    updatedDate: ''
   }
 
-  getEventTime = () => {
-    axios.get(`${BASE_URL}/Conexion_Reciente/Reciente.json`)
-    .then((date) => {
-      this.setState({lastLectureDate: date.data})
+  setEventTime = () => {
+    const dateListen = firebase.database().refFromURL(`${BASE_URL}/Conexion_Reciente/Reciente`);
+    dateListen.on('value', (snapshot) => {
+      this.setState({updatedDate: snapshot.val()});
+    })
+  }
+
+  setAlarmState = () => {
+    const alarmListen = firebase.database().refFromURL(`${BASE_URL}/Estado_Local/Estado`);
+    alarmListen.on('value', (snapshot) => {
+      this.setState({alarmState: snapshot.val()});
     });
   }
 
-  setAlarmState = (lecture) => {
-    this.setState({alarmState: lecture});
-    this.getEventTime();
-  }
-
   setRFCommonState = (lecture) => {
-    this.setState({RFState: lecture});
-    this.getEventTime();
+    const RFStateListen = firebase.database().refFromURL(`${BASE_URL}/COM_RF/RFDSecundario`);
+    RFStateListen.on('value', (snapshot) => {
+      this.setState({RFState: snapshot.val()});
+    });
   }
 
-  normalState = () => {
-    this.setAlarmState('normal');
+  componentDidMount = () => {
+    this.setEventTime();
+    this.setAlarmState();
+    this.setRFCommonState();
   }
 
   failureState = () => {
-    const activeNodesLecture = firebase.database().refFromURL(`${BASE_URL}/Estado_Local/Estado`);
-    activeNodesLecture.on('value', (snapshot) => {
+    const activeNodesListen = firebase.database().refFromURL(`${BASE_URL}/Estado_Local/Estado`);
+    activeNodesListen.on('value', (snapshot) => {
       console.log(snapshot.val());
     });
     axios.get(`${BASE_URL}/Direccion.json`)
@@ -50,10 +56,6 @@ class App extends Component {
       window.open(`https://www.google.com.ar/maps/search/?api=1&query=${encodedQuery}`);
     });
     this.setAlarmState('failure');
-  }
-  
-  criticalState = () => {
-    this.setAlarmState('critical');
   }
 
   render () {
@@ -66,7 +68,7 @@ class App extends Component {
           </Route>
           <Route path="/resumen">
             <Resumen 
-              date={this.state.lastLectureDate}
+              date={this.state.updatedDate}
               alarmState={this.state.alarmState}
               rfState={this.state.RFState}/> 
           </Route>
