@@ -12,6 +12,17 @@
   background-color: var(--tile);
   border-radius: 50%;
   box-shadow: 0 5px 10px #ccc;
+  border-style: none;
+}
+
+.ToggleBtn:focus {
+  outline: none;
+}
+
+.ToggleBtn:hover,
+.ToggleBtn:active {
+  cursor: pointer;
+  background-color: #69664c;
 }
 
 .ToggleBtn div {
