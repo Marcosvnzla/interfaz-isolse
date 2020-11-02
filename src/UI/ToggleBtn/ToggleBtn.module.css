@@ -1,13 +1,32 @@
 .ToggleBtn {
-  width: 128px;
-  height: 128px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 64px;
+  height: 64px;
   padding: 8px;
   background-color: var(--tile);
   border-radius: 50%;
   box-shadow: 0 5px 10px #ccc;
 }
 
-.ToggleBtn img {
+.ToggleBtn div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 50%;
   height: 50%;
+}
+
+.ToggleBtn img {
+  width: 100%;
+  height: 100%;
+}
+
+.ToggleBtn .rotated {
+  transform: rotate(180deg);
 }
