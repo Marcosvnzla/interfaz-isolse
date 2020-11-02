@@ -61,7 +61,7 @@ class App extends Component {
     });
   }
 
-  componentDidMount = () => {
+  componentDidMount() {
     this.setEventTime();
     this.setAlarmState();
     this.setRFCommonState();
@@ -70,7 +70,7 @@ class App extends Component {
   render () {
     return (
       <BrowserRouter>
-        <Layout>
+        <Layout showMenuState={this.state.menuState}>
           <Route path="/" exact component={NodosSistema} />
           <Route path="/indicadores" >
             <Indicadores alarmIndicador={this.state.alarmIndicador} RFIndicador={this.state.RFIndicador} /> 

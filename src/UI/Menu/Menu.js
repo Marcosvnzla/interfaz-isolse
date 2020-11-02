@@ -5,14 +5,13 @@ import { NavLink } from 'react-router-dom';
 const Menu = (props) => {
   const showClass = props.toggleClass ? 'show' : '';
   const classes = [styles.Menu, styles[showClass]];
-  console.log(classes);
 
   return (
   <div className={classes.join(' ')}>
     <ul>
-      <li><NavLink to="/">Nodos</NavLink></li>
-      <li><NavLink to="/indicadores">Indicadores</NavLink></li>
-      <li><NavLink to="/resumen">Resumen</NavLink></li>
+      <li><NavLink to="/" onClick={props.clickedLink}>Nodos</NavLink></li>
+      <li><NavLink to="/indicadores" onClick={props.clickedLink}>Indicadores</NavLink></li>
+      <li><NavLink to="/resumen" onClick={props.clickedLink}>Resumen</NavLink></li>
     </ul>
   </div>
 );

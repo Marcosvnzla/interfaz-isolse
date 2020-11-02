@@ -18,7 +18,7 @@ class Layout extends Component {
       <Fragment>
         <Toolbar />
         <ToggleBtn clicked={this.toggleMenuClass} />
-        <Menu toggleClass={this.state.show} />
+        <Menu clickedLink={this.toggleMenuClass} toggleClass={this.state.show} />
         {this.props.children}
       </Fragment>
     );
