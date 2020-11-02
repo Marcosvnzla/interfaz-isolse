@@ -31,6 +31,7 @@
   align-items: center;
   width: 50%;
   height: 50%;
+  transition: transform 300ms ease-out;
 }
 
 .ToggleBtn img {
@@ -40,4 +41,12 @@
 
 .ToggleBtn .rotated {
   transform: rotate(180deg);
+}
+
+.show {
+  transform: translateY(17px);
+}
+
+.downArrowShow {
+  transform: translateY(-17px);
 }
