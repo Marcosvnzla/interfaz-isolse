@@ -1,9 +1,4 @@
 .Toolbar {
-  background-color: var(--orange);
-  color: rgb(43, 43, 43);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 8px;
   margin-bottom: 81px;
 }
