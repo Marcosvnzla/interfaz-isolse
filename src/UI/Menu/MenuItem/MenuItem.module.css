@@ -1,0 +1,18 @@
+.MenuItem {
+  display: inline-block;
+  width: 115px;
+  padding: 6px 16px;
+  margin-bottom: 16px;
+  background-color: #404040;
+  color: #F98D33;
+  font-family: 'Lato';
+  font-weight: 400;
+  border-radius: 25px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.active {
+  background-color: #282828;
+  font-weight: 700;
+}

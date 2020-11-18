@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Menu.module.css';
-import { NavLink } from 'react-router-dom';
+import MenuItem from './MenuItem/MenuItem';
 
 const Menu = (props) => {
   const showClass = props.toggleClass ? 'show' : '';
@@ -9,9 +9,10 @@ const Menu = (props) => {
   return (
   <div className={classes.join(' ')}>
     <ul>
-      <li><NavLink to="/" onClick={props.clickedLink}>Nodos</NavLink></li>
-      <li><NavLink to="/indicadores" onClick={props.clickedLink}>Indicadores</NavLink></li>
-      <li><NavLink to="/resumen" onClick={props.clickedLink}>Resumen</NavLink></li>
+      <li><MenuItem to="/" clicked={props.clickedLink}>Nodos</MenuItem></li>
+      <li><MenuItem to="/indicadores" clicked={props.clickedLink}>Indicadores</MenuItem></li>
+      <li><MenuItem to="/resumen" clicked={props.clickedLink}>Resumen</MenuItem></li>
+      <li><MenuItem to="/about" clicked={props.clickedLink}>Nosotros</MenuItem></li>
     </ul>
   </div>
 );

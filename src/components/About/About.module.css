@@ -1,0 +1,22 @@
+.infoContainer {
+  text-align: center;
+  font-family: 'Lato';
+  padding: 12px;
+  color: #3f3f3f;
+}
+
+.infoContainer a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+  margin-top: 12px;
+}
+
+.profileInfo p {
+  color: #626262;
+  height: 32px;
+  margin: 0;
+  font-family: 'Lato';
+  font-size: 12px;
+}

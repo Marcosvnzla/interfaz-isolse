@@ -7,6 +7,7 @@ import Layout from './components/Layout/Layout';
 import NodosSistema from './components/NodosSistema/NodosSistema';
 import Resumen from './components/Resumen/Resumen';
 import Indicadores from './components/Indicadores/Indicadores';
+import About from './components/About/About';
 
 const BASE_URL = 'https://maestria1-24022020.firebaseio.com/SISTEMA DE DETECCION INCENDIO DAMF';
 
@@ -81,6 +82,7 @@ class App extends Component {
               alarmState={this.state.alarmState}
               rfState={this.state.RFState}/> 
           </Route>
+          <Route path="/about" component={About} />
         </Layout>
       </BrowserRouter>
     );
