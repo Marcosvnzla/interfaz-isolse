@@ -1,5 +1,8 @@
 import React from 'react';
 import styles from './Indicadores.module.css';
+import MainDisplay from '../MainDisplay/MainDisplay';
+import wifi_img from '../../assets/images/wifi_img.svg';
+import central_img from '../../assets/images/central_img.svg';
 
 const Indicadores = (props) => {
 
@@ -36,21 +39,25 @@ const Indicadores = (props) => {
   }
 
   return (
-    <div className={styles.Indicadores}>
-      <h1>Indicadores</h1>
+    <MainDisplay title='Indicadores'>
       <div className={styles.ContainerGraficas}>
         <div className={styles.Grafica}>
           <h2>SDA!</h2>
-          <div className={styles[props.alarmIndicador]}></div>
+          <div className={styles[props.alarmIndicador]}>
+            <img src={wifi_img} alt="wifi moden icon" style={{padding: '16px'}} />
+          </div>
           <p>Componente en estado <strong>{sdaTextMessage}</strong></p>
         </div>
         <div className={styles.Grafica}>
           <h2>RF Common</h2>
-          <div className={styles[props.RFIndicador]}></div>
+          <div className={styles[props.RFIndicador]}>
+            <img src={central_img} alt="central icon" />
+          </div>
           <p>Componente en estado <strong>{rfTextMessage}</strong> </p>
         </div>
       </div>
-    </div>
+      <button onClick={props.btnClicked}>Obtener dirección</button>
+    </MainDisplay>
 
   );
 };

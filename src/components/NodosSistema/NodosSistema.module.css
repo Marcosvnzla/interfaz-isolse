@@ -1,14 +1,17 @@
+.NodosSistema {
+  width: 100%;
+  text-align: center;
+}
 .NodosSistema select {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #c4c4c4;
   color: black;
-  padding: 16px;
-  width: 250px;
+  padding: 12px;
+  width: 80%;
+  margin: 0 auto;
   border: none;
   border-radius: 4px;
-  font-size: 14px;
-  font-weight: bold;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
-  -webkit-appearance: button;
-  appearance: button;
+  font-family: 'Lato';
+  font-weight: 400;
+  font-size: 16px;
   outline: none;
 }

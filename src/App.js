@@ -73,7 +73,7 @@ class App extends Component {
         <Layout showMenuState={this.state.menuState}>
           <Route path="/" exact component={NodosSistema} />
           <Route path="/indicadores" >
-            <Indicadores alarmIndicador={this.state.alarmIndicador} RFIndicador={this.state.RFIndicador} /> 
+            <Indicadores btnClicked={this.getLocation} alarmIndicador={this.state.alarmIndicador} RFIndicador={this.state.RFIndicador} /> 
           </Route>
           <Route path="/resumen">
             <Resumen 
@@ -81,7 +81,6 @@ class App extends Component {
               alarmState={this.state.alarmState}
               rfState={this.state.RFState}/> 
           </Route>
-          <button onClick={this.getLocation}>Obtener Direccion</button>
         </Layout>
       </BrowserRouter>
     );
