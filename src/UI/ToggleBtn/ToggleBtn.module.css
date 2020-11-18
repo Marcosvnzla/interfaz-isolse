@@ -4,12 +4,12 @@
   right: 52px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 64px;
   height: 64px;
   padding: 8px;
-  background-color: var(--tile);
+  background-color: #626262;
   border-radius: 50%;
   box-shadow: 0 5px 10px #ccc;
   border-style: none;
@@ -22,16 +22,16 @@
 .ToggleBtn:hover,
 .ToggleBtn:active {
   cursor: pointer;
-  background-color: #69664c;
+  background-color: #404040;
 }
 
 .ToggleBtn div {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50%;
-  height: 50%;
-  transition: transform 300ms ease-out;
+  width: 40%;
+  height: 40%;
+  transition: transform 150ms ease-out;
 }
 
 .ToggleBtn img {
@@ -39,14 +39,10 @@
   height: 100%;
 }
 
-.ToggleBtn .rotated {
-  transform: rotate(180deg);
-}
-
 .show {
-  transform: translateY(17px);
+  transform: translateY(22px);
 }
 
 .downArrowShow {
-  transform: translateY(-17px);
+  transform: translateY(-22px);
 }
