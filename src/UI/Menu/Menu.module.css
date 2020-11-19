@@ -1,5 +1,6 @@
 .Menu {
   position: fixed;
+  z-index: 1000;
   bottom: 90px;
   right: 30px;
   transform: translateX(200px);
