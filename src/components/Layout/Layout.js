@@ -1,8 +1,10 @@
 import React, { Fragment, Component } from 'react';
+import styles from './Layout.module.css';
 import Toolbar from '../../UI/Toolbar/Toolbar';
 import ToggleBtn from '../../UI/ToggleBtn/ToggleBtn';
 import Menu from '../../UI/Menu/Menu';
 import Backdrop from '../../UI/Backdrop/Backdrop';
+import SideDrawer from '../../UI/SideDrawer/SideDrawer';
 
 class Layout extends Component {
   state = {
@@ -18,10 +20,15 @@ class Layout extends Component {
     return (
       <Fragment>
         <Backdrop clicked={this.toggleMenuClass} toggleClass={this.state.show} />
-        <Toolbar />
-        <ToggleBtn clicked={this.toggleMenuClass} toggleClass={this.state.show} />
         <Menu clickedLink={this.toggleMenuClass} toggleClass={this.state.show} />
-        {this.props.children}
+        <div className={styles.BodyContainer}>
+          <div>
+            <Toolbar />
+            {this.props.children}
+          </div>
+          <SideDrawer />
+        </div>
+        <ToggleBtn clicked={this.toggleMenuClass} toggleClass={this.state.show} />
       </Fragment>
     );
   }

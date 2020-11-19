@@ -1,0 +1,15 @@
+.SideDrawer {
+  display: none;
+  flex-direction: column;
+  place-items: center center;
+  flex-grow: 1 !important;
+  width: 250px;
+  height: 100vh;
+  background-color: yellow;
+}
+
+@media (min-width: 1024px) {
+  .SideDrawer {
+    display: flex;
+  }
+}

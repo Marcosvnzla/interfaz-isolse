@@ -1,14 +1,14 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import styles from './MainDisplay.module.css';
 
 const MainDisplay = (props) => {
   return (
-    <Fragment>
+    <div>
       <h1 className={styles.Title}>{props.title}</h1>
       <div className={styles.MainDisplay}>
         {props.children}
       </div>
-    </Fragment>
+    </div>
   );
 }
 

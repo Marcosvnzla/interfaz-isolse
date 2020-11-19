@@ -1,0 +1,7 @@
+.BodyContainer {
+  display: flex;
+}
+
+.BodyContainer > div {
+  flex-grow: 100;
+}
