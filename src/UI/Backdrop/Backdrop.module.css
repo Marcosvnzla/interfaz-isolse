@@ -12,3 +12,9 @@
 .show {
   display: block;
 }
+
+@media (min-width: 1024px) {
+  .Backdrop {
+    display: none;
+  }
+}

@@ -13,9 +13,9 @@ class Layout extends Component {
 
   toggleMenuClass = () => {
     const desktopWidth = window.matchMedia('(min-width: 1024px)');
-    const currentState = this.state.show;
 
     if (!desktopWidth.matches) {
+      const currentState = this.state.show;
       this.setState({show: !currentState});
     }
   }
@@ -29,8 +29,8 @@ class Layout extends Component {
             <Toolbar />
             {this.props.children}
           </div>
-          <SideDrawer clicked={this.toggleMenuClass}>
-            <Menu clickedLink={this.toggleMenuClass} toggleClass={this.state.show} />
+          <SideDrawer clicked={this.toggleMenuClass} toggleClass={this.state.show}>
+            <Menu clickedLink={this.toggleMenuClass} />
           </SideDrawer>
         </div>
         <ToggleBtn clicked={this.toggleMenuClass} toggleClass={this.state.show} />

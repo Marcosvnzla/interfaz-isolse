@@ -3,16 +3,10 @@
   z-index: 1000;
   bottom: 90px;
   right: 30px;
-  transform: translateX(200px);
-  transition: transform 150ms ease-out;
 }
 
 .Menu ul {
   list-style: none;
-}
-
-.show {
-  transform: translateX(0);
 }
 
 @media (min-width: 1024px) {

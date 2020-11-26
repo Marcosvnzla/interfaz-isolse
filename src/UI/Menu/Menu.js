@@ -3,11 +3,8 @@ import styles from './Menu.module.css';
 import MenuItem from './MenuItem/MenuItem';
 
 const Menu = (props) => {
-  const showClass = props.toggleClass ? 'show' : '';
-  const classes = [styles.Menu, styles[showClass]];
-
   return (
-  <div className={classes.join(' ')}>
+  <div className={styles.Menu}>
     <ul>
       <li><MenuItem to="/" clicked={props.clickedLink}>Nodos</MenuItem></li>
       <li><MenuItem to="/indicadores" clicked={props.clickedLink}>Indicadores</MenuItem></li>

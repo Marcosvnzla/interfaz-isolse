@@ -5,11 +5,8 @@
 .imgContainer {
   width: 65px;
   height: 65px;
-}
-
-.Toolbar img {
-  width: 100%;
-  height: 100%;
+  background: url('../../assets/images/smallLogo.png');
+  background-size: cover;
 }
 
 .Toolbar p {
@@ -21,5 +18,7 @@
   .imgContainer {
     width: 250px;
     height: 77;
+    background: url('../../assets/images/fullLogo.png');
+    background-size: cover;
   }
 }
