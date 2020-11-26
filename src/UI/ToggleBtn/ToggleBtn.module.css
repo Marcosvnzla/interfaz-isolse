@@ -47,3 +47,9 @@
 .downArrowShow {
   transform: translateY(-22px);
 }
+
+@media (min-width: 1024px) {
+  .ToggleBtn {
+    display: none;
+  }
+}

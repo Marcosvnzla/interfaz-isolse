@@ -12,21 +12,26 @@ class Layout extends Component {
   }
 
   toggleMenuClass = () => {
+    const desktopWidth = window.matchMedia('(min-width: 1024px)');
     const currentState = this.state.show;
-    this.setState({show: !currentState});
+
+    if (!desktopWidth.matches) {
+      this.setState({show: !currentState});
+    }
   }
 
   render() {
     return (
       <Fragment>
         <Backdrop clicked={this.toggleMenuClass} toggleClass={this.state.show} />
-        <Menu clickedLink={this.toggleMenuClass} toggleClass={this.state.show} />
         <div className={styles.BodyContainer}>
           <div>
             <Toolbar />
             {this.props.children}
           </div>
-          <SideDrawer />
+          <SideDrawer clicked={this.toggleMenuClass}>
+            <Menu clickedLink={this.toggleMenuClass} toggleClass={this.state.show} />
+          </SideDrawer>
         </div>
         <ToggleBtn clicked={this.toggleMenuClass} toggleClass={this.state.show} />
       </Fragment>

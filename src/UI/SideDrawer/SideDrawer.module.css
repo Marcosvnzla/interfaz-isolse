@@ -1,15 +1,18 @@
 .SideDrawer {
   display: none;
+  top: 0;
+  right: 0;
   flex-direction: column;
-  place-items: center center;
-  flex-grow: 1 !important;
+  justify-content: center;
+  align-items: center;
   width: 250px;
   height: 100vh;
-  background-color: yellow;
 }
 
 @media (min-width: 1024px) {
   .SideDrawer {
     display: flex;
+    flex-grow: 1 !important; 
+    background-color: #6C6C6C;
   }
 }

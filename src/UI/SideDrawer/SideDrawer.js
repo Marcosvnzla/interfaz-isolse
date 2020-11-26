@@ -1,11 +1,10 @@
 import React from 'react';
 import styles from './SideDrawer.module.css';
-import Menu from '../Menu/Menu';
 
-const sideDrawer = () => {
+const sideDrawer = (props) => {
   return (
-    <div className={styles.SideDrawer}>
-      <Menu />
+    <div className={styles.SideDrawer} onClick={props.clicked}>
+      {props.children}
     </div>
   );
 }
