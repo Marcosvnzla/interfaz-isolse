@@ -9,7 +9,7 @@
   align-items: center;
   width: 250px;
   height: 100vh;
-  transform: translateX(200px);
+  transform: translateX(300px);
   transition: transform 150ms ease-out;
 }
 
@@ -20,7 +20,6 @@
 @media (min-width: 1024px) {
   .SideDrawer {
     position: static;
-    display: flex;
     flex-grow: 1 !important; 
     background-color: #6C6C6C;
     transform: translateX(0);
