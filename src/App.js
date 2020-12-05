@@ -17,7 +17,8 @@ class App extends Component {
     alarmState: '',
     updatedDate: '',
     alarmIndicador: '',
-    RFIndicador: ''
+    RFIndicador: '',
+    nodeState: ''
   }
 
   getLocation = () => {
@@ -62,17 +63,27 @@ class App extends Component {
     });
   }
 
+  setNodeState = () => {
+    const activeNode = firebase.database().refFromURL(`${BASE_URL}/ACTIVE_NODES/Nodos`);
+    activeNode.on('value', (snapshot) => {
+      this.setState({nodeState: snapshot.val()});
+    });
+  }
+
   componentDidMount() {
     this.setEventTime();
     this.setAlarmState();
     this.setRFCommonState();
+    this.setNodeState();
   }
 
   render () {
     return (
       <BrowserRouter>
         <Layout showMenuState={this.state.menuState}>
-          <Route path="/" exact component={NodosSistema} />
+          <Route path="/" exact>
+            <NodosSistema nodeIndicator={this.state.nodeState} />
+          </Route>
           <Route path="/indicadores" >
             <Indicadores btnClicked={this.getLocation} alarmIndicador={this.state.alarmIndicador} RFIndicador={this.state.RFIndicador} /> 
           </Route>

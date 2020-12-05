@@ -15,10 +15,10 @@ const Indicadores = (props) => {
       sdaTextMessage = 'de falla';
       break;
     case 'critical':
-      sdaTextMessage = 'critico!';
+      sdaTextMessage = 'crítico!';
       break;
     default:
-      sdaTextMessage = 'no se pudo obtener informacion del estado';
+      sdaTextMessage = 'no se pudo obtener información del estado';
       break;
   }
 
@@ -31,10 +31,10 @@ const Indicadores = (props) => {
       rfTextMessage = 'de falla';
       break;
     case 'critical':
-      rfTextMessage = 'critico!';
+      rfTextMessage = 'crítico!';
       break;
     default:
-      rfTextMessage = 'no se pudo obtener informacion del estado';
+      rfTextMessage = 'no se pudo obtener información del estado';
       break;
   }
 
