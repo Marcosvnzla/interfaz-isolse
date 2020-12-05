@@ -9,7 +9,7 @@
   align-items: center;
   width: 250px;
   height: 100vh;
-  transform: translateX(300px);
+  transform: translateX(700px);
   transition: transform 150ms ease-out;
 }
 
