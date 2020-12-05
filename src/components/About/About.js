@@ -17,7 +17,7 @@ const About = () => {
         <p>IMSDI v_1.0<br/>Interfaz de monitoreo para sistemas de detección de incendio</p>
       </div>
       <div className={styles.profileInfo}>
-        <p>creado con <img src={heart_icon} alt="heart icon" /> por <a href="https://github.com/Marcosvnzla/" target="_blank">Marcos Ulloa</a></p>
+        <p>creado con <img src={heart_icon} alt="heart icon" /> por <a href="https://github.com/Marcosvnzla/" target="_blank" rel="noreferrer">Marcos Ulloa</a></p>
       </div>
     </MainDisplay>
   );

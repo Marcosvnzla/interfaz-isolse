@@ -2,16 +2,13 @@
   width: 100%;
   text-align: center;
 }
-.NodosSistema select {
+.NodosSistema p {
   background-color: #c4c4c4;
   color: black;
-  padding: 12px;
+  padding: 16px 8px;
   width: 80%;
   margin: 0 auto;
-  border: none;
   border-radius: 4px;
   font-family: 'Lato';
-  font-weight: 400;
-  font-size: 16px;
-  outline: none;
+  font-size: 18px;
 }
