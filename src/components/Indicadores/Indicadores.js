@@ -42,16 +42,16 @@ const Indicadores = (props) => {
     <MainDisplay title='Indicadores'>
       <div className={styles.ContainerGraficas}>
         <div className={styles.Grafica}>
-          <h2>SDA!</h2>
+          <h2>SDAI</h2>
           <div className={styles[props.alarmIndicador]}>
-            <img src={wifi_img} alt="wifi moden icon" style={{padding: '16px'}} />
+            <img src={central_img} alt="central icon" />
           </div>
           <p>Componente en estado <strong>{sdaTextMessage}</strong></p>
         </div>
         <div className={styles.Grafica}>
           <h2>RF Common</h2>
           <div className={styles[props.RFIndicador]}>
-            <img src={central_img} alt="central icon" />
+            <img src={wifi_img} alt="wifi moden icon" style={{padding: '16px'}} />
           </div>
           <p>Componente en estado <strong>{rfTextMessage}</strong> </p>
         </div>
