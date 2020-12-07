@@ -49,7 +49,7 @@ const Indicadores = (props) => {
           <p>Componente en estado <strong>{sdaTextMessage}</strong></p>
         </div>
         <div className={styles.Grafica}>
-          <h2>RF Common</h2>
+          <h2>RF Comm</h2>
           <div className={styles[props.RFIndicador]}>
             <img src={wifi_img} alt="wifi moden icon" style={{padding: '16px'}} />
           </div>
